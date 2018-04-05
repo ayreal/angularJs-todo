@@ -11,12 +11,12 @@
   <div ng-controller="mainCtrl" class="list">
     <h1 ng-click="helloWorld()">My TODOs</h1>
     <input ng-model="todo.completed" type="checkbox"/>
-    <label class="editing-label">{{todo.name}}</label>
+    <label class="editing-label" ng-hide="editing">{{todo.name}}</label>
     <!-- ng model: bind the value in this input to an object in the scope -->
     <!-- two-way data binding (unlike react, where you have to use a controlled component) -->
-    <input ng-model="todo.name" class="editing-label" type="text"/>
+    <input ng-model="todo.name" ng-show="editing" class="editing-label" type="text"/>
     <div class="actions">
-      <a href="">edit</a>
+      <a href="" ng-click=" editing = !editing">edit</a>
       <a href="" ng-click="helloWorld()">save</a>
       <a href="" class="Delete">delete</a>
     </div>
